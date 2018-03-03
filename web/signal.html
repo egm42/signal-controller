@@ -32,7 +32,6 @@ function reloadChat () {
 }
 </script>
 
-
 <head>
 	<link rel = "stylesheet" href = "signal.css">
 </head>
@@ -45,6 +44,7 @@ function reloadChat () {
 <br>
 <table>
 	<tr>
+		<th></th>
 		<th>Signal 1</th>
 		<th>Signal 2</th>
 		<th>Signal 3</th>
@@ -55,6 +55,9 @@ function reloadChat () {
 		<th>Signal 8</th>
 	</tr>
 	<tr>
+		<td>
+			<p>Signal Indication</p>
+		</td>
 		<td>
 			<div id = "signal1">
 			<div class="loader"></div>
@@ -98,6 +101,9 @@ function reloadChat () {
 	</tr>
 	<tr>
 		<td>
+			<p>Detector Status</p>
+		</td>
+		<td>
 			<div id = "detector1">
 			<div class="loader"></div>
 			</div>
@@ -138,7 +144,86 @@ function reloadChat () {
 			</div>
 		</td>
 	</tr>
+	<tr>
+		<td>
+			<p>Detector Toggle</p>
+		</td>
+		<td>
+			<div>
+				<form action = "changeDetectorStatus.php" target = "hiddenFrame">
+					<input type = "hidden" name = "det" value = "1"/>
+					<input type = "submit" name = "toggle" value = "Y"/>
+					<input type = "submit" name = "toggle" value = "N"/>
+				</form>
+			</div>
+		</td>
+		<td>
+			<div>
+				<form action = "changeDetectorStatus.php" target = "hiddenFrame">
+					<input type = "hidden" name = "det" value = "2"/>
+					<input type = "submit" name = "toggle" value = "Y"/>
+					<input type = "submit" name = "toggle" value = "N"/>
+				</form>
+			</div>
+		</td>
+		<td>
+			<div>
+				<form action = "changeDetectorStatus.php" target = "hiddenFrame">
+					<input type = "hidden" name = "det" value = "3"/>
+					<input type = "submit" name = "toggle" value = "Y"/>
+					<input type = "submit" name = "toggle" value = "N"/>
+				</form>
+			</div>
+		</td>
+		<td>
+			<div>
+				<form action = "changeDetectorStatus.php" target = "hiddenFrame">
+					<input type = "hidden" name = "det" value = "4"/>
+					<input type = "submit" name = "toggle" value = "Y"/>
+					<input type = "submit" name = "toggle" value = "N"/>
+				</form>
+			</div>
+		</td>
+		<td>
+			<div>
+				<form action = "changeDetectorStatus.php" target = "hiddenFrame">
+					<input type = "hidden" name = "det" value = "5"/>
+					<input type = "submit" name = "toggle" value = "Y"/>
+					<input type = "submit" name = "toggle" value = "N"/>
+				</form>
+			</div>
+		</td>
+		<td>
+			<div>
+				<form action = "changeDetectorStatus.php" target = "hiddenFrame">
+					<input type = "hidden" name = "det" value = "6"/>
+					<input type = "submit" name = "toggle" value = "Y"/>
+					<input type = "submit" name = "toggle" value = "N"/>
+				</form>
+			</div>
+		</td>
+		<td>
+			<div>
+				<form action = "changeDetectorStatus.php" target = "hiddenFrame">
+					<input type = "hidden" name = "det" value = "7"/>
+					<input type = "submit" name = "toggle" value = "Y"/>
+					<input type = "submit" name = "toggle" value = "N"/>
+				</form>
+			</div>
+		</td>
+		<td>
+			<div>
+				<form action = "changeDetectorStatus.php" target = "hiddenFrame">
+					<input type = "hidden" name = "det" value = "8"/>
+					<input type = "submit" name = "toggle" value = "Y"/>
+					<input type = "submit" name = "toggle" value = "N"/>
+				</form>
+			</div>
+		</td>
+	</tr>
 
 </table>
+
 </body>
+<iframe name="hiddenFrame" width="0" height="0" border="0" style="display: none;"></iframe>
 </html>
