@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<clientCache cacheControlMode="DisableCache" />
+<title>Signal Test Page</title>
+
+<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+<script language="javascript" type="text/javascript">
+var timeout = setInterval(reloadChat, 1000);    
+function reloadChat () {
+	$('#signal1').load('signalStatus.php?arg=1');
+	$('#signal2').load('signalStatus.php?arg=2');
+	$('#signal3').load('signalStatus.php?arg=3');
+	$('#signal4').load('signalStatus.php?arg=4');
+	$('#signal5').load('signalStatus.php?arg=5');
+	$('#signal6').load('signalStatus.php?arg=6');
+	$('#signal7').load('signalStatus.php?arg=7');
+	$('#signal8').load('signalStatus.php?arg=8');
+}
+</script>
+<script language="javascript" type="text/javascript">
+var timeout = setInterval(reloadChat, 1000);    
+function reloadChat () {
+	$('#detector1').load('detectorStatus.php?arg=1');
+	$('#detector2').load('detectorStatus.php?arg=2');
+	$('#detector3').load('detectorStatus.php?arg=3');
+	$('#detector4').load('detectorStatus.php?arg=4');
+	$('#detector5').load('detectorStatus.php?arg=5');
+	$('#detector6').load('detectorStatus.php?arg=6');
+	$('#detector7').load('detectorStatus.php?arg=7');
+	$('#detector8').load('detectorStatus.php?arg=8');
+}
+</script>
+
+
+<head>
+	<link rel = "stylesheet" href = "signal.css">
+</head>
+
+<body>
+<div>
+	<h2>Signal Test Page</h3>
+	<p>This page is intended to test a very basic signal controller program.<br>It refreshes every second to display the current signal status.</p>
+</div>
+<br>
+<table>
+	<tr>
+		<th>Signal 1</th>
+		<th>Signal 2</th>
+		<th>Signal 3</th>
+		<th>Signal 4</th>
+		<th>Signal 5</th>
+		<th>Signal 6</th>
+		<th>Signal 7</th>
+		<th>Signal 8</th>
+	</tr>
+	<tr>
+		<td>
+			<div id = "signal1">
+			<div class="loader"></div>
+			</div>
+		</td>
+		<td>
+			<div id = "signal2">
+			<div class="loader"></div>
+			</div>
+		</td>
+		<td>
+			<div id = "signal3">
+			<div class="loader"></div>
+			</div>
+		</td>
+		<td>
+			<div id = "signal4">
+			<div class="loader"></div>
+			</div>
+		</td>
+		<td>
+			<div id = "signal5">
+			<div class="loader"></div>
+			</div>
+		</td>
+		<td>
+			<div id = "signal6">
+			<div class="loader"></div>
+			</div>
+		</td>
+		<td>
+			<div id = "signal7">
+			<div class="loader"></div>
+			</div>
+		</td>
+		<td>
+			<div id = "signal8">
+			<div class="loader"></div>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<div id = "detector1">
+			<div class="loader"></div>
+			</div>
+		</td>
+		<td>
+			<div id = "detector2">
+			<div class="loader"></div>
+			</div>
+		</td>
+		<td>
+			<div id = "detector3">
+			<div class="loader"></div>
+			</div>
+		</td>
+		<td>
+			<div id = "detector4">
+			<div class="loader"></div>
+			</div>
+		</td>
+		<td>
+			<div id = "detector5">
+			<div class="loader"></div>
+			</div>
+		</td>
+		<td>
+			<div id = "detector6">
+			<div class="loader"></div>
+			</div>
+		</td>
+		<td>
+			<div id = "detector7">
+			<div class="loader"></div>
+			</div>
+		</td>
+		<td>
+			<div id = "detector8">
+			<div class="loader"></div>
+			</div>
+		</td>
+	</tr>
+
+</table>
+</body>
+</html>
