@@ -1,35 +1,35 @@
 #!/usr/bin/python
-import sys
-sys.path.insert(0, "/../../var/www/html/signal-controller/controller")
+
 import time
 import status
 
-for x in range(1, 9):
-	status.setDetectorValues(x, "Y")
+status.allRed()
+detectorValues = status.readDetectorValues()
 
-detectorValues = status.readDetectorValues()
-if detectorValues[2 - 1] == "Y" and detectorValues[6 - 1] == "Y":
+if detectorValues[2 - 1] == "Y" or detectorValues[6 - 1] == "Y":
+	status.allRed()
 	status.setSignalStatus(2, "Green")
 	status.setSignalStatus(6, "Green")
-	status.setDetectorValues(2, "N")
-	status.setDetectorValues(6, "N")
-else:
-	status.setSignalStatus(4, "Green")
-	status.setSignalStatus(8, "Green")
-	status.setDetectorValues(4, "N")
-	status.setDetectorValues(8, "N")
-time.sleep(5)
+	time.sleep(15)
 	
 detectorValues = status.readDetectorValues()
-if detectorValues[2 - 1] == "Y" and detectorValues[6 - 1] == "Y":
-	status.setSignalStatus(2, "Green")
-	status.setSignalStatus(6, "Green")
-	status.setDetectorValues(2, "N")
-	status.setDetectorValues(6, "N")
-else:
+if detectorValues[1 - 1] == "Y" or detectorValues[5 - 1] == "Y":
+	status.allRed()
+	status.setSignalStatus(1, "Green")
+	status.setSignalStatus(5, "Green")
+	time.sleep(15)
+	
+detectorValues = status.readDetectorValues()
+if detectorValues[4 - 1] == "Y" or detectorValues[8 - 1] == "Y":
+	status.allRed()
 	status.setSignalStatus(4, "Green")
 	status.setSignalStatus(8, "Green")
-	status.setDetectorValues(4, "N")
-	status.setDetectorValues(8, "N")
+	time.sleep(15)
 	
-time.sleep(5)
+detectorValues = status.readDetectorValues()
+if detectorValues[3 - 1] == "Y" or detectorValues[7 - 1] == "Y":
+	status.allRed()
+	status.setSignalStatus(3, "Green")
+	status.setSignalStatus(7, "Green")
+	time.sleep(15)
+	

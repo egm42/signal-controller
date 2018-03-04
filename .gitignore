@@ -1,2 +1,4 @@
 controller/signalStatus
 controller/__pycache__/status.cpython-35.pyc
+web/controllerStats.php
+controller/ringBarrier
