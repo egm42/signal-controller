@@ -4,32 +4,17 @@ import time
 import status
 
 status.allRed()
-detectorValues = status.readDetectorValues()
+i = 1
 
-if detectorValues[2 - 1] == "Y" or detectorValues[6 - 1] == "Y":
-	status.allRed()
-	status.setSignalStatus(2, "Green")
-	status.setSignalStatus(6, "Green")
-	time.sleep(15)
-	
-detectorValues = status.readDetectorValues()
-if detectorValues[1 - 1] == "Y" or detectorValues[5 - 1] == "Y":
-	status.allRed()
-	status.setSignalStatus(1, "Green")
-	status.setSignalStatus(5, "Green")
-	time.sleep(15)
-	
-detectorValues = status.readDetectorValues()
-if detectorValues[4 - 1] == "Y" or detectorValues[8 - 1] == "Y":
-	status.allRed()
-	status.setSignalStatus(4, "Green")
-	status.setSignalStatus(8, "Green")
-	time.sleep(15)
-	
-detectorValues = status.readDetectorValues()
-if detectorValues[3 - 1] == "Y" or detectorValues[7 - 1] == "Y":
-	status.allRed()
-	status.setSignalStatus(3, "Green")
-	status.setSignalStatus(7, "Green")
-	time.sleep(15)
-	
+#The controller will keep cycling as long as the "on-off" value in status.json is set to 1
+while status.state():
+	#Current controller operation is 4 phases
+	for x in range(1, 5):
+		sigParameters = status.sigParameters()
+		#If statement checks to ensure that at least 1 detector is active for each phase
+		if status.readDetectorValues()[str(sigParameters["ring"]["1"][str(x)])] or status.readDetectorValues()[str(sigParameters["ring"]["2"][str(x)])]:
+			status.allRed()
+			status.setSignalStatus(str(sigParameters["ring"]["1"][str(x)]), 1)
+			status.setSignalStatus(str(sigParameters["ring"]["2"][str(x)]), 1)
+		sleep = max(sigParameters["minGreen"][str(sigParameters["ring"]["1"][str(x)])], sigParameters["minGreen"][str(sigParameters["ring"]["2"][str(x)])])
+		time.sleep(sleep)

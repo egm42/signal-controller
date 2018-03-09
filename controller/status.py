@@ -1,25 +1,38 @@
+import json
 
 def readDetectorValues():
-	file = open("/var/www/html/signal-controller/controller/detectorStatus", "r")
-	values = file.read().split("\n")
-	return values;
+	with open("/var/www/html/signal-controller/controller/status.json", "r") as file:
+		fileJSON = json.loads(file.read())
+		return fileJSON["input"]["vehicle"]
 
 def setDetectorValues(detector, trigger):
-	file = open("/var/www/html/signal-controller/controller/detectorStatus", "r")
-	status = file.read().split("\n")
-	status[detector - 1] = trigger
-	file = open("/var/www/html/signal-controller/controller/detectorStatus", "w")
-	file.write("\n".join(status))
-	file.close()
-
+	with open("/var/www/html/signal-controller/controller/status.json", "r") as file:
+		fileJSON = json.loads(file.read())
+		fileJSON["input"]["vehicle"][str(phase)] = trigger
+	
+	with open("/var/www/html/signal-controller/controller/status.json", "w") as file:
+		json.dump(fileJSON, file)
+		file.close()
+	
 def setSignalStatus(phase, phaseIndication):
-	file = open("/var/www/html/signal-controller/controller/signalStatus", "r")
-	status = file.read().split("\n")
-	status[phase - 1] = phaseIndication
-	file = open("/var/www/html/signal-controller/controller/signalStatus", "w")
-	file.write("\n".join(status))
-	file.close()
-
+	with open("/var/www/html/signal-controller/controller/status.json", "r") as file:
+		fileJSON = json.loads(file.read())
+		fileJSON["output"]["vehicle"][str(phase)] = phaseIndication
+	
+	with open("/var/www/html/signal-controller/controller/status.json", "w") as file:
+		json.dump(fileJSON, file)
+		file.close()
+	
 def allRed():
 	for x in range(1, 9):
-		setSignalStatus(x, "Red")
+		setSignalStatus(x, 3)
+		
+def sigParameters():
+	with open("/var/www/html/signal-controller/controller/sigParameters.json", "r") as file:
+		fileJSON = json.loads(file.read())
+		return fileJSON
+		
+def state():
+	with open("/var/www/html/signal-controller/controller/status.json", "r") as file:
+		fileJSON = json.loads(file.read())
+		return fileJSON["on-off"]
