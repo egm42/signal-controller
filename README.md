@@ -1,6 +1,6 @@
 # signal-controller
 
-This is a python program that runs a basic signal traffic controller software.
+This is a python program that runs a basic signal traffic controller software. Included is also a web interface to perform updates to signal controller parameters and view current status.
 
 ## Overview
 
